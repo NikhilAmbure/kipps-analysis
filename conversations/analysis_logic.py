@@ -96,10 +96,8 @@ def relevance_score(messages):
     
 # Accuracy score :
 """
-     Note: Accuracy is measured as a confidence score based on the presence
-     of uncertain language. While not perfect, this serves as a reasonable
-     proxy for factual accuracy in the absence of a knowledge base for
-     actual fact-checking.
+     Accuracy is measured as a confidence score based on the presence
+     of uncertain language.
 """
 def accuracy_score(ai_messages):
     uncertain_phrases = [

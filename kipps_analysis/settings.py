@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'drf_yasg',
+    'celery',
     'conversations'
 ]
 
@@ -85,6 +87,18 @@ DATABASES = {
 CRONJOBS = [
     ('0 0 * * *', 'conversations.cron.daily_analyse')
 ]
+
+from celery.schedules import crontab
+
+CELERY_BROKER_URL = "redis://localhost:6380/0"
+CELERY_RESULT_BACKEND = "redis://localhost:6380/0"
+
+CELERY_BEAT_SCHEDULE = {
+    "daily_conversation_analysis": {
+        "task": "conversations.tasks.daily_analyse",
+        "schedule": crontab(hour=0, minute=0), # at mid night 12:00 AM
+    }
+}
 
 
 # Password validation
