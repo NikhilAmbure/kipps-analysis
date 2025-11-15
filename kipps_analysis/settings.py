@@ -84,10 +84,6 @@ DATABASES = {
     }
 }
 
-CRONJOBS = [
-    ('0 0 * * *', 'conversations.cron.daily_analyse')
-]
-
 from celery.schedules import crontab
 
 CELERY_BROKER_URL = "redis://localhost:6380/0"

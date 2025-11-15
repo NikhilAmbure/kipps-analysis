@@ -40,5 +40,5 @@ class ConversationUploadSerializer(serializers.Serializer):
                 text=msg.get("message")
             )
 
-        return conversation\
+        return conversation
         

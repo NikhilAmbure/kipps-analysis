@@ -122,12 +122,13 @@ def accuracy_score(ai_messages):
 
 # completeness_score 
 def completeness_score(messages):
+    """Checking if every user message is followed by an AI response."""
     for i in range(len(messages) - 1):
         if messages[i].sender == "user":
             if messages[i+1].sender == "user":
                 return 0.5
-            
-    return 1
+    
+    return 1.0
 
 
 # sentiment_score (TextBlob): 
@@ -224,6 +225,7 @@ def detect_resolution(user_messages):
 
 # Average response time
 def average_response_time(messages):
+    """Calculate average time between user messages and AI responses."""
     times = []
     
     for i in range(len(messages) - 1):
@@ -233,4 +235,4 @@ def average_response_time(messages):
             diff = (t2 - t1).total_seconds()
             times.append(diff)
     
-    return sum(times) / len(times) if times else None
+    return sum(times) / len(times) if times else 0.0
