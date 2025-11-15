@@ -292,7 +292,7 @@ def daily_analyse():
 Celery worker output example:
 
 📸 *Screenshot:*
-`![celery](screenshots/celery_worker.png)`
+![celery](screenshots/celery_worker.png)
 
 ---
 
